@@ -67,7 +67,7 @@ const makeWelcome = () => {
 };
 
 const QuestionAndAnswer = (expression) => {
-  console.log('Question: ', expression);
+  console.log('Question: ' + expression);
   const answer = readlineSync.question('Your answer: ');
   return answer;
 };
