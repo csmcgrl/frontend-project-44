@@ -4,8 +4,9 @@ let name;
 let random;
 let random2;
 
-const getRandomArrayElement = (arr) =>
-  arr[Math.floor(Math.random() * arr.length)];
+const getRandomArrayElement = (arr) => {
+  return arr[Math.floor(Math.random() * arr.length)];
+};
 
 const calcExpression = (num1, num2, symbol) => {
   let result;
@@ -19,6 +20,8 @@ const calcExpression = (num1, num2, symbol) => {
     case ' * ':
       result = num1 * num2;
       break;
+    default:
+      console.log('Некорректное выражение');
   }
   return result;
 };
@@ -149,7 +152,6 @@ const brainGCD = () => {
   while (i < 3 && result) {
     random = Math.floor(Math.random() * 100) + 1;
     random2 = Math.floor(Math.random() * 100) + 1;
-    const twoNums = random + ' ' + random2;
     const answer = QuestionAndAnswer(twoNums);
     const correctAnswer = greatestDivisor(random, random2);
     if (answer !== String(correctAnswer)) {
