@@ -1,5 +1,9 @@
 import readlineSync from 'readline-sync';
 
+let name;
+let random;
+let random2;
+
 const getRandomArrayElement = (arr) => {
   return arr[Math.floor(Math.random() * arr.length)];
 };
@@ -18,22 +22,22 @@ const greatestDivisor = (n1, n2) => {
 };
 
 const generateProgression = () => {
-  let length = Math.floor(Math.random() * 6) + 5; // генерируем длину прогрессии от 5 до 10
-  let position = Math.floor(Math.random() * length); // генерируем позицию пропущенного числа
-  let a1 = Math.floor(Math.random() * 10) + 1; // генерируем первый член прогрессии от 1 до 10
-  let d = Math.floor(Math.random() * 5) + 1; // генерируем разность прогрессии от 1 до 5
+  let length = Math.floor(Math.random() * 6) + 5;
+  let position = Math.floor(Math.random() * length);
+  let a1 = Math.floor(Math.random() * 10) + 1;
+  let d = Math.floor(Math.random() * 5) + 1;
 
   let progression = [];
   for (let i = 0; i < length; i += 1) {
     if (i === position) {
-      progression.push('..'); // добавляем пропущенное число вместо элемента на позиции position
+      progression.push('..');
     } else {
       progression.push(a1 + d * i);
     }
   }
   return {
-    progression: progression.join(' '), // объединяем элементы прогрессии в строку
-    answer: a1 + d * position, // вычисляем правильный ответ
+    progression: progression.join(' '),
+    answer: a1 + d * position,
   };
 };
 
@@ -62,106 +66,157 @@ const makeWelcome = () => {
   return name;
 };
 
-const commonFunc = (gameName) => {
-  const name = makeWelcome();
+const QuestionAndAnswer = (expression) => {
+  console.log('Question: ', expression);
+  const answer = readlineSync.question('Your answer: ');
+  return answer;
+};
 
+const wrongAnswer = (answer, correctAnswer, name) => {
+  console.log(
+    `'${answer}' is wrong answer ;(. Correct answer was '${correctAnswer}'. \nLet's try again, ${name}!`
+  );
+};
+
+const brainEven = () => {
+  console.log('Answer "yes" if the number is even, otherwise answer "no".');
   let i = 0;
   let result = true;
   while (i < 3 && result) {
-    const random = Math.floor(Math.random() * 100) + 1;
-    const random2 = Math.floor(Math.random() * 100) + 1;
-    const symbol = getRandomArrayElement([' + ', ' - ', ' * ']);
-    const correctAnswer = eval(random + symbol + random2);
+    random = Math.floor(Math.random() * 100) + 1;
 
-    if (gameName === 'brain-even') {
-      console.log('Answer "yes" if the number is even, otherwise answer "no".');
-      console.log('Question:', random);
-      const answer = readlineSync.question('Your answer: ');
-      if (random % 2 === 0 && answer !== 'yes') {
-        console.log(
-          `'${answer}' is wrong answer ;(. Correct answer was 'yes'. \nLet's try again, ${name}!`
-        );
-        result = false;
-      } else if (random % 2 !== 0 && answer !== 'no') {
-        console.log(
-          `'${answer}' is wrong answer ;(. Correct answer was 'no'. \nLet's try again, ${name}!`
-        );
-        result = false;
-      } else {
-        console.log('Correct!');
-        i += 1;
-        result = true;
-      }
-    } else if (gameName === 'brain-calc') {
-      console.log('What is the result of the expression?');
-      console.log('Question: ' + random + symbol + random2);
-      const answer = readlineSync.question('Your answer: ');
-      if (answer !== String(correctAnswer)) {
-        console.log(
-          `'${answer}' is wrong answer ;(. Correct answer was '${correctAnswer}'. \nLet's try again, ${name}!`
-        );
-        result = false;
-      } else {
-        console.log('Correct!');
-        i += 1;
-        result = true;
-      }
-    } else if (gameName === 'brain-gcd') {
-      console.log('Find the greatest common divisor of given numbers.');
-      console.log('Question: ' + random + ' ' + random2);
-      const answer = readlineSync.question('Your answer: ');
-      const correctAnswer = greatestDivisor(random, random2);
-      if (answer !== String(correctAnswer)) {
-        console.log(
-          `'${answer}' is wrong answer ;(. Correct answer was '${correctAnswer}'. \nLet's try again, ${name}!`
-        );
-        result = false;
-      } else {
-        console.log('Correct!');
-        i += 1;
-        result = true;
-      }
-    } else if (gameName === 'brain-progression') {
-      let currentProgression = generateProgression();
-      console.log('What number is missing in the progression?');
-      console.log('Question: ' + currentProgression.progression);
-      const answer = readlineSync.question('Your answer: ');
-      if (answer !== String(currentProgression.answer)) {
-        console.log(
-          `'${answer}' is wrong answer ;(. Correct answer was '${currentProgression.answer}'. \nLet's try again, ${name}!`
-        );
-        result = false;
-      } else {
-        console.log('Correct!');
-        i += 1;
-        result = true;
-      }
-    } else if (gameName === 'brain-prime') {
-      console.log(
-        'Answer "yes" if given number is prime. Otherwise answer "no".'
-      );
-      console.log('Question:', random);
-      const answer = readlineSync.question('Your answer: ');
-      if (!isPrime(random) && answer !== 'no') {
-        console.log(
-          `'${answer}' is wrong answer ;(. Correct answer was 'no'. \nLet's try again, ${name}!`
-        );
-        result = false;
-      } else if (isPrime(random) && answer !== 'yes') {
-        console.log(
-          `'${answer}' is wrong answer ;(. Correct answer was 'yes'. \nLet's try again, ${name}!`
-        );
-        result = false;
-      } else {
-        console.log('Correct!');
-        i += 1;
-        result = true;
-      }
+    const answer = QuestionAndAnswer(random);
+    if (random % 2 === 0 && answer !== 'yes') {
+      wrongAnswer(answer, 'yes', name);
+      result = false;
+    } else if (random % 2 !== 0 && answer !== 'no') {
+      wrongAnswer(answer, 'no', name);
+      result = false;
+    } else {
+      console.log('Correct!');
+      i += 1;
+      result = true;
     }
-
     if (i === 3) {
       console.log(`Congratulations, ${name}!`);
     }
+  }
+};
+
+const brainCalc = () => {
+  console.log('What is the result of the expression?');
+  let i = 0;
+  let result = true;
+  while (i < 3 && result) {
+    random = Math.floor(Math.random() * 100) + 1;
+    random2 = Math.floor(Math.random() * 100) + 1;
+    const symbol = getRandomArrayElement([' + ', ' - ', ' * ']);
+    const correctAnswer = eval(random + symbol + random2);
+
+    const answer = QuestionAndAnswer(random + symbol + random2);
+
+    if (answer !== String(correctAnswer)) {
+      wrongAnswer(answer, String(correctAnswer), name);
+
+      result = false;
+    } else {
+      console.log('Correct!');
+      i += 1;
+      result = true;
+    }
+    if (i === 3) {
+      console.log(`Congratulations, ${name}!`);
+    }
+  }
+};
+
+const brainGCD = () => {
+  console.log('Find the greatest common divisor of given numbers.');
+  let i = 0;
+  let result = true;
+  while (i < 3 && result) {
+    random = Math.floor(Math.random() * 100) + 1;
+    random2 = Math.floor(Math.random() * 100) + 1;
+    const answer = QuestionAndAnswer(random + ' ' + random2);
+    const correctAnswer = greatestDivisor(random, random2);
+    if (answer !== String(correctAnswer)) {
+      wrongAnswer(answer, String(correctAnswer), name);
+      result = false;
+    } else {
+      console.log('Correct!');
+      i += 1;
+      result = true;
+    }
+    if (i === 3) {
+      console.log(`Congratulations, ${name}!`);
+    }
+  }
+};
+const brainProgression = () => {
+  console.log('What number is missing in the progression?');
+  let i = 0;
+  let result = true;
+  while (i < 3 && result) {
+    let currentProgression = generateProgression();
+    const answer = QuestionAndAnswer(currentProgression.progression);
+    if (answer !== String(currentProgression.answer)) {
+      wrongAnswer(answer, String(currentProgression.answer), name);
+      result = false;
+    } else {
+      console.log('Correct!');
+      i += 1;
+      result = true;
+    }
+    if (i === 3) {
+      console.log(`Congratulations, ${name}!`);
+    }
+  }
+};
+const brainPrime = () => {
+  console.log('Answer "yes" if given number is prime. Otherwise answer "no".');
+  let i = 0;
+  let result = true;
+  while (i < 3 && result) {
+    random = Math.floor(Math.random() * 100) + 1;
+    const answer = QuestionAndAnswer(random);
+    if (!isPrime(random) && answer !== 'no') {
+      wrongAnswer(answer, 'no', name);
+      result = false;
+    } else if (isPrime(random) && answer !== 'yes') {
+      wrongAnswer(answer, 'yes', name);
+      result = false;
+    } else {
+      console.log('Correct!');
+      i += 1;
+      result = true;
+    }
+    if (i === 3) {
+      console.log(`Congratulations, ${name}!`);
+    }
+  }
+};
+
+const commonFunc = (gameName) => {
+  name = makeWelcome();
+
+  switch (gameName) {
+    case 'brain-even':
+      brainEven();
+      break;
+    case 'brain-calc':
+      brainCalc();
+      break;
+    case 'brain-gcd':
+      brainGCD();
+      break;
+    case 'brain-progression':
+      brainProgression();
+      break;
+    case 'brain-prime':
+      brainPrime();
+      break;
+    default:
+      console.log('Игра не найдена');
   }
 };
 
