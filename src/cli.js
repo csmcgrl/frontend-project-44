@@ -7,6 +7,22 @@ let random2;
 const getRandomArrayElement = (arr) =>
   arr[Math.floor(Math.random() * arr.length)];
 
+const calcExpression = (num1, num2, symbol) => {
+  let result;
+  switch (symbol) {
+    case ' + ':
+      result = num1 + num2;
+      break;
+    case ' - ':
+      result = num1 - num2;
+      break;
+    case ' * ':
+      result = num1 * num2;
+      break;
+  }
+  return result;
+};
+
 const greatestDivisor = (n1, n2) => {
   let i = n1 > n2 ? n2 : n1;
 
@@ -59,16 +75,16 @@ const makeWelcome = () => {
 
   name = readlineSync.question('May I have your name? ');
 
-  console.log('Hello, ' + name + '!');
+  console.log('Hello,', name, '!');
 };
 
 const QuestionAndAnswer = (expression) => {
-  console.log('Question: ' + expression);
+  console.log('Question:', expression);
   const answer = readlineSync.question('Your answer: ');
   return answer;
 };
 
-const wrongAnswer = (answer, correctAnswer, name) => {
+const wrongAnswer = (answer, correctAnswer) => {
   console.log(
     `'${answer}' is wrong answer ;(. Correct answer was '${correctAnswer}'. \nLet's try again, ${name}!`
   );
@@ -83,10 +99,10 @@ const brainEven = () => {
 
     const answer = QuestionAndAnswer(random);
     if (random % 2 === 0 && answer !== 'yes') {
-      wrongAnswer(answer, 'yes', name);
+      wrongAnswer(answer, 'yes');
       result = false;
     } else if (random % 2 !== 0 && answer !== 'no') {
-      wrongAnswer(answer, 'no', name);
+      wrongAnswer(answer, 'no');
       result = false;
     } else {
       console.log('Correct!');
@@ -107,12 +123,12 @@ const brainCalc = () => {
     random = Math.floor(Math.random() * 100) + 1;
     random2 = Math.floor(Math.random() * 100) + 1;
     const symbol = getRandomArrayElement([' + ', ' - ', ' * ']);
-    const correctAnswer = eval(random + symbol + random2);
+    const correctAnswer = calcExpression(random, random2, symbol);
 
     const answer = QuestionAndAnswer(random + symbol + random2);
 
     if (answer !== String(correctAnswer)) {
-      wrongAnswer(answer, String(correctAnswer), name);
+      wrongAnswer(answer, String(correctAnswer));
 
       result = false;
     } else {
@@ -133,10 +149,11 @@ const brainGCD = () => {
   while (i < 3 && result) {
     random = Math.floor(Math.random() * 100) + 1;
     random2 = Math.floor(Math.random() * 100) + 1;
-    const answer = QuestionAndAnswer(random + ' ' + random2);
+    const twoNums = random + ' ' + random2;
+    const answer = QuestionAndAnswer(twoNums);
     const correctAnswer = greatestDivisor(random, random2);
     if (answer !== String(correctAnswer)) {
-      wrongAnswer(answer, String(correctAnswer), name);
+      wrongAnswer(answer, String(correctAnswer));
       result = false;
     } else {
       console.log('Correct!');
@@ -156,7 +173,7 @@ const brainProgression = () => {
     const currentProgression = generateProgression();
     const answer = QuestionAndAnswer(currentProgression.progression);
     if (answer !== String(currentProgression.answer)) {
-      wrongAnswer(answer, String(currentProgression.answer), name);
+      wrongAnswer(answer, String(currentProgression.answer));
       result = false;
     } else {
       console.log('Correct!');
@@ -176,10 +193,10 @@ const brainPrime = () => {
     random = Math.floor(Math.random() * 100) + 1;
     const answer = QuestionAndAnswer(random);
     if (!isPrime(random) && answer !== 'no') {
-      wrongAnswer(answer, 'no', name);
+      wrongAnswer(answer, 'no');
       result = false;
     } else if (isPrime(random) && answer !== 'yes') {
-      wrongAnswer(answer, 'yes', name);
+      wrongAnswer(answer, 'yes');
       result = false;
     } else {
       console.log('Correct!');
