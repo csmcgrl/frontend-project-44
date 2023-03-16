@@ -4,30 +4,27 @@ let name;
 let random;
 let random2;
 
-const getRandomArrayElement = (arr) => {
-  return arr[Math.floor(Math.random() * arr.length)];
-};
+const getRandomArrayElement = (arr) =>
+  arr[Math.floor(Math.random() * arr.length)];
 
 const greatestDivisor = (n1, n2) => {
-  let i;
-  if (n1 > n2) {
-    i = n2;
-  } else i = n1;
+  let i = n1 > n2 ? n2 : n1;
 
   while (i > 0) {
     if (n1 % i === 0 && n2 % i === 0) {
-      return i;
+      break;
     } else i -= 1;
   }
+  return i;
 };
 
 const generateProgression = () => {
-  let length = Math.floor(Math.random() * 6) + 5;
-  let position = Math.floor(Math.random() * length);
-  let a1 = Math.floor(Math.random() * 10) + 1;
-  let d = Math.floor(Math.random() * 5) + 1;
+  const length = Math.floor(Math.random() * 6) + 5;
+  const position = Math.floor(Math.random() * length);
+  const a1 = Math.floor(Math.random() * 10) + 1;
+  const d = Math.floor(Math.random() * 5) + 1;
 
-  let progression = [];
+  const progression = [];
   for (let i = 0; i < length; i += 1) {
     if (i === position) {
       progression.push('..');
@@ -60,10 +57,9 @@ const isPrime = (num) => {
 const makeWelcome = () => {
   console.log('Welcome to the Brain Games!');
 
-  const name = readlineSync.question('May I have your name? ');
+  name = readlineSync.question('May I have your name? ');
 
-  console.log('Hello,', name + '!');
-  return name;
+  console.log('Hello, ' + name + '!');
 };
 
 const QuestionAndAnswer = (expression) => {
@@ -157,7 +153,7 @@ const brainProgression = () => {
   let i = 0;
   let result = true;
   while (i < 3 && result) {
-    let currentProgression = generateProgression();
+    const currentProgression = generateProgression();
     const answer = QuestionAndAnswer(currentProgression.progression);
     if (answer !== String(currentProgression.answer)) {
       wrongAnswer(answer, String(currentProgression.answer), name);
@@ -197,7 +193,7 @@ const brainPrime = () => {
 };
 
 const commonFunc = (gameName) => {
-  name = makeWelcome();
+  makeWelcome();
 
   switch (gameName) {
     case 'brain-even':
