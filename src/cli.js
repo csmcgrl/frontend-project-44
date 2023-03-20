@@ -3,10 +3,8 @@ import readlineSync from 'readline-sync';
 let name;
 let random;
 let random2;
-
-const getRandomArrayElement = (arr) => {
-  return arr[Math.floor(Math.random() * arr.length)];
-};
+// prettier-ignore
+const getRandomArrayElement = arr => arr[Math.floor(Math.random() * arr.length)];
 
 const calcExpression = (num1, num2, symbol) => {
   let result;
@@ -57,7 +55,7 @@ const generateProgression = () => {
   };
 };
 
-const isPrime = (num) => {
+const isPrime = num => {
   if (num % 2 === 0 || num === 1) {
     return false;
   }
@@ -81,7 +79,7 @@ const makeWelcome = () => {
   console.log(`Hello, ${name}!`);
 };
 
-const QuestionAndAnswer = (expression) => {
+const QuestionAndAnswer = expression => {
   console.log('Question:', expression);
   const answer = readlineSync.question('Your answer: ');
   return answer;
@@ -152,8 +150,7 @@ const brainGCD = () => {
   while (i < 3 && result) {
     random = Math.floor(Math.random() * 100) + 1;
     random2 = Math.floor(Math.random() * 100) + 1;
-    //const question = `${random}${random2}`;
-    const answer = QuestionAndAnswer(random + ' ' + random2);
+    const answer = QuestionAndAnswer(`${random} ${random2}`);
     const correctAnswer = greatestDivisor(random, random2);
     if (answer !== String(correctAnswer)) {
       wrongAnswer(answer, String(correctAnswer));
@@ -212,7 +209,7 @@ const brainPrime = () => {
   }
 };
 
-const commonFunc = (gameName) => {
+const commonFunc = gameName => {
   makeWelcome();
 
   switch (gameName) {
