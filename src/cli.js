@@ -4,7 +4,7 @@ let name;
 let random;
 let random2;
 // prettier-ignore
-const getRandomArrayElement = arr => arr[Math.floor(Math.random() * arr.length)];
+const getRandomArrayElement = (arr) => arr[Math.floor(Math.random() * arr.length)];
 
 const calcExpression = (num1, num2, symbol) => {
   let result;
@@ -54,8 +54,8 @@ const generateProgression = () => {
     answer: a1 + d * position,
   };
 };
-
-const isPrime = num => {
+// prettier-ignore
+const isPrime = (num) => {
   if (num % 2 === 0 || num === 1) {
     return false;
   }
@@ -78,17 +78,15 @@ const makeWelcome = () => {
 
   console.log(`Hello, ${name}!`);
 };
-
-const QuestionAndAnswer = expression => {
+// prettier-ignore
+const QuestionAndAnswer = (expression) => {
   console.log('Question:', expression);
   const answer = readlineSync.question('Your answer: ');
   return answer;
 };
-
+// prettier-ignore
 const wrongAnswer = (answer, correctAnswer) => {
-  console.log(
-    `'${answer}' is wrong answer ;(. Correct answer was '${correctAnswer}'. \nLet's try again, ${name}!`
-  );
+  console.log(`'${answer}' is wrong answer ;(. Correct answer was '${correctAnswer}'. \nLet's try again, ${name}!`);
 };
 
 const brainEven = () => {
@@ -208,8 +206,8 @@ const brainPrime = () => {
     }
   }
 };
-
-const commonFunc = gameName => {
+// prettier-ignore
+const commonFunc = (gameName) => {
   makeWelcome();
 
   switch (gameName) {
