@@ -152,7 +152,8 @@ const brainGCD = () => {
   while (i < 3 && result) {
     random = Math.floor(Math.random() * 100) + 1;
     random2 = Math.floor(Math.random() * 100) + 1;
-    const answer = QuestionAndAnswer(twoNums);
+    //const question = `${random}${random2}`;
+    const answer = QuestionAndAnswer(random + ' ' + random2);
     const correctAnswer = greatestDivisor(random, random2);
     if (answer !== String(correctAnswer)) {
       wrongAnswer(answer, String(correctAnswer));
