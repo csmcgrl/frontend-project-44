@@ -78,7 +78,7 @@ const makeWelcome = () => {
 
   name = readlineSync.question('May I have your name? ');
 
-  console.log('Hello,', name, '!');
+  console.log(`Hello, ${name}!`);
 };
 
 const QuestionAndAnswer = (expression) => {
