@@ -22,9 +22,8 @@ export const runEngine = (rules, generateRound) => {
     if (question === answer) {
       console.log('Correct!');
     } else {
-      console.log(
-        `'${answer}' is wrong answer ;(. Correct answer was '${question}'. \nLet's try again, ${name}!`
-      );
+      // prettier-ignore
+      console.log(`'${answer}' is wrong answer ;(. Correct answer was '${question}'. \nLet's try again, ${name}!`);
       return;
     }
   }

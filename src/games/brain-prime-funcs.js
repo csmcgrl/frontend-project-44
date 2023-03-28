@@ -1,6 +1,6 @@
 import { getRandomInRange, questionAndAnswer } from '../index.js';
 // prettier-ignore
-const isPrime = (num)=> {
+const isPrime = (num) => {
   if (num % 2 === 0 || num === 1) {
     return false;
   }

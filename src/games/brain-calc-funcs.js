@@ -20,7 +20,7 @@ const calcExpression = (num1, num2, symbol) => {
   return result;
 };
 // prettier-ignore
-const getRandomArrayElement = arr => arr[Math.floor(Math.random() * arr.length)];
+const getRandomArrayElement = (arr) => arr[Math.floor(Math.random() * arr.length)];
 
 export const generateRound = () => {
   const symbol = getRandomArrayElement([' + ', ' - ', ' * ']);
