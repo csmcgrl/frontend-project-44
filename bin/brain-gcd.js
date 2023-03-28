@@ -1,4 +1,5 @@
 #!/usr/bin/env node
-import { commonFunc } from '../src/cli.js';
+import { runEngine } from '../src/index.js';
+import { rules, generateRound } from '../src/games/brain-gcd-funcs.js';
 
-commonFunc('brain-gcd');
+runEngine(rules, generateRound);

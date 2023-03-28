@@ -1,4 +1,5 @@
 #!/usr/bin/env node
-import { commonFunc } from '../src/cli.js';
+import { runEngine } from '../src/index.js';
+import { rules, generateRound } from '../src/games/brain-progression-funcs.js';
 
-commonFunc('brain-progression');
+runEngine(rules, generateRound);
