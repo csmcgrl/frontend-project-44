@@ -1,4 +1,4 @@
-// import readlineSync from 'readline-sync';
+import readlineSync from 'readline-sync';
 // import { getRandomInRange } from '../src/index.js';
 
 // let name;
@@ -72,13 +72,13 @@
 //   return true;
 // };
 
-// const makeWelcome = () => {
-//   console.log('Welcome to the Brain Games!');
+export const makeWelcome = () => {
+  console.log('Welcome to the Brain Games!');
 
-//   name = readlineSync.question('May I have your name? ');
+  const name = readlineSync.question('May I have your name? ');
 
-//   console.log(`Hello, ${name}!`);
-// };
+  console.log(`Hello, ${name}!`);
+};
 // prettier-ignore
 // const QuestionAndAnswer = (expression) => {
 //   console.log('Question:', expression);
