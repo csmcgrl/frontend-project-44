@@ -1,7 +1,7 @@
 import { getRandomInRange, questionAndAnswer } from '../index.js';
 
-export const rules =
-  'Answer "yes" if the number is even, otherwise answer "no".';
+// prettier-ignore
+export const rules = 'Answer "yes" if the number is even, otherwise answer "no".';
 
 export const generateRound = () => {
   const random = getRandomInRange(1, 100);

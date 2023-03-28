@@ -1,6 +1,6 @@
 import { getRandomInRange, questionAndAnswer } from '../index.js';
-
-const isPrime = num => {
+// prettier-ignore
+const isPrime = (num)=> {
   if (num % 2 === 0 || num === 1) {
     return false;
   }
@@ -15,9 +15,8 @@ const isPrime = num => {
   }
   return true;
 };
-
-export const rules =
-  'Answer "yes" if given number is prime. Otherwise answer "no".';
+// prettier-ignore
+export const rules = 'Answer "yes" if given number is prime. Otherwise answer "no".';
 export const generateRound = () => {
   const random = getRandomInRange(5, 100);
   const answer = questionAndAnswer(random);

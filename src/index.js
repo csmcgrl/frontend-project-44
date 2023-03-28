@@ -1,10 +1,8 @@
 import readlineSync from 'readline-sync';
-
-export const getRandomInRange = (min, max) => {
-  return Math.floor(min + Math.random() * (max - min + 1));
-};
-
-export const questionAndAnswer = expression => {
+// prettier-ignore
+export const getRandomInRange = (min, max) => Math.floor(min + Math.random() * (max - min + 1));
+// prettier-ignore
+export const questionAndAnswer = (expression) => {
   console.log('Question:', expression);
   const answer = readlineSync.question('Your answer: ');
   return answer;
@@ -19,7 +17,7 @@ export const runEngine = (rules, generateRound) => {
 
   console.log(`Hello, ${name}!`);
   console.log(rules);
-  for (let i = 0; i < roundsCount; i++) {
+  for (let i = 0; i < roundsCount; i += 1) {
     const [question, answer] = generateRound();
     if (question === answer) {
       console.log('Correct!');
