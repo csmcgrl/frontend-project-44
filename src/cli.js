@@ -7,4 +7,5 @@ const makeWelcome = () => {
 
   console.log(`Hello, ${name}!`);
 };
+
 export default makeWelcome;

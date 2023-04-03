@@ -1,8 +1,6 @@
 import readlineSync from 'readline-sync';
-// prettier-ignore
-export const getRandomInRange = (min, max) => Math.floor(min + Math.random() * (max - min + 1));
-// prettier-ignore
-export const questionAndAnswer = (expression) => {
+
+export const questionAndAnswer = expression => {
   console.log('Question:', expression);
   const answer = readlineSync.question('Your answer: ');
   return answer;
@@ -22,8 +20,9 @@ export const runEngine = (rules, generateRound) => {
     if (question === answer) {
       console.log('Correct!');
     } else {
-      // prettier-ignore
-      console.log(`'${answer}' is wrong answer ;(. Correct answer was '${question}'. \nLet's try again, ${name}!`);
+      console.log(
+        `'${answer}' is wrong answer ;(. Correct answer was '${question}'. \nLet's try again, ${name}!`
+      );
       return;
     }
   }
