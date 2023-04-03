@@ -3,7 +3,7 @@
 [![Actions Status](https://github.com/csmcgrl/frontend-project-44/workflows/hexlet-check/badge.svg)](https://github.com/csmcgrl/frontend-project-44/actions)
 [![Maintainability](https://api.codeclimate.com/v1/badges/e25cbb7ada390bb9af7a/maintainability)](https://codeclimate.com/github/csmcgrl/frontend-project-44/maintainability)
 
-"Mind Games" is a set of five console games based on popular mobile brain training apps. Each game asks questions that need to be answered correctly. After three correct answers, the game is considered to be completed. Wrong answers end the game and offer to play it again. Games:
+**"Mind Games"** is a set of five console games based on popular mobile brain training apps. Each game asks questions that need to be answered correctly. After three correct answers, the game is considered to be completed. Wrong answers end the game and offer to play it again. Games:
 
 1.Calculator. Arithmetic expressions to be evaluated.
 2.Progression. Search for missing numbers in a sequence of numbers.
@@ -16,8 +16,8 @@ To download the game, clone the "frontend-project-44" repository on your compute
 In the Makefile you can see all the commands in more detail.
 These short videos demonstrate the gameplay:
 
-[![brain-games, brain-calc](https://asciinema.org/a/570664.png)](https://asciinema.org/a/570664)
-[![brain-games, brain-progression](https://asciinema.org/a/570666.png)](https://asciinema.org/a/570666)
-[![brain-games, brain-even](https://asciinema.org/a/570667.png)](https://asciinema.org/a/570667)
-[![brain-games, brain-gcd](https://asciinema.org/a/570670.png)](https://asciinema.org/a/570670)
-[![brain-games, brain-prime](https://asciinema.org/a/570673.png)](https://asciinema.org/a/570673)
+![brain-games, brain-calc](https://asciinema.org/a/570664)
+![brain-games, brain-progression](https://asciinema.org/a/570666)
+![brain-games, brain-even](https://asciinema.org/a/570667)
+![brain-games, brain-gcd](https://asciinema.org/a/570670)
+![brain-games, brain-prime](https://asciinema.org/a/570673)
