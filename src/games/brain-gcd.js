@@ -1,4 +1,5 @@
 import { questionAndAnswer, runEngine } from '../index.js';
+
 import getRandomInRange from '../utils.js';
 
 const greatestDivisor = (num1, num2) => {

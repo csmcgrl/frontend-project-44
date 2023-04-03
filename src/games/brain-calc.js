@@ -1,4 +1,5 @@
 import { questionAndAnswer, runEngine } from '../index.js';
+
 import getRandomInRange from '../utils.js';
 
 const rules = 'What is the result of the expression?';
@@ -26,9 +27,7 @@ const generateRound = () => {
   const randomNum = getRandomInRange(1, 100);
   const randomNum2 = getRandomInRange(1, 100);
   const correctAnswer = calcExpression(randomNum, randomNum2, operator);
-  const userAnswer = questionAndAnswer(
-    randomNum + ' ' + operator + ' ' + randomNum2
-  );
+  const userAnswer = questionAndAnswer(`${randomNum} ${operator} ${randomNum2}`);
   const strCorrectAnswer = String(correctAnswer);
   return [strCorrectAnswer, userAnswer];
 };

@@ -1,7 +1,8 @@
 import { questionAndAnswer, runEngine } from '../index.js';
+
 import getRandomInRange from '../utils.js';
 
-const isPrime = num => {
+const isPrime = (num) => {
   if (num % 2 === 0 || num === 1) {
     return false;
   }

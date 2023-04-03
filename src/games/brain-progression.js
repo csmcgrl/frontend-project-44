@@ -1,4 +1,5 @@
 import { questionAndAnswer, runEngine } from '../index.js';
+
 import getRandomInRange from '../utils.js';
 
 const generateProgression = () => {
