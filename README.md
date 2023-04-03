@@ -16,8 +16,8 @@ To download the game, clone the "frontend-project-44" repository on your compute
 In the Makefile you can see all the commands in more detail.
 These short videos demonstrate the gameplay:
 
-[![brain-games, brain-calc](https://asciinema.org/a/14.png)](https://asciinema.org/a/570664)
-[![brain-games, brain-progression](https://asciinema.org/a/14.png)](https://asciinema.org/a/570666)
-[![brain-games, brain-even](https://asciinema.org/a/14.png)](https://asciinema.org/a/570667)
-[![brain-games, brain-gcd](https://asciinema.org/a/14.png)](https://asciinema.org/a/570670)
-[![brain-games, brain-prime](https://asciinema.org/a/14.png)](https://asciinema.org/a/570673)
+[![brain-games, brain-calc](https://asciinema.org/a/570664.png)](https://asciinema.org/a/570664)
+[![brain-games, brain-progression](https://asciinema.org/a/570666.png)](https://asciinema.org/a/570666)
+[![brain-games, brain-even](https://asciinema.org/a/570667.png)](https://asciinema.org/a/570667)
+[![brain-games, brain-gcd](https://asciinema.org/a/570670.png)](https://asciinema.org/a/570670)
+[![brain-games, brain-prime](https://asciinema.org/a/570673.png)](https://asciinema.org/a/570673)
