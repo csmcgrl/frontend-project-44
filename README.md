@@ -17,15 +17,15 @@ Games:
 
 5.Definition of a prime number.
 
-**Instructions for downloading and launching the application**  
+**Instructions for downloading and launching the application**
+
 Download
 
 1. Open a terminal (or command prompt on Windows).
 2. Change to the directory where you want to save a local copy of the repository.
 3. Execute the `git clone` command with the URL of the repository.
 
-Launch
-
+Launch  
 To start the game, enter the command `brain-games`. Then you can decide which game to play by entering any of the following commands relatively: 1.`brain-calc` 2.`brain-progression` 3.`brain-even` 4.`brain-gcd` 5.`brain-prime`
 
 In the Makefile you can see all the commands in more detail.
