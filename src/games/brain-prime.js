@@ -22,10 +22,7 @@ const rules = 'Answer "yes" if given number is prime. Otherwise answer "no".';
 const generateRound = () => {
   const randomNum = getRandomInRange(5, 100);
   const userAnswer = questionAndAnswer(randomNum);
-  let correctAnswer;
-  if (isPrime(randomNum)) {
-    correctAnswer = 'yes';
-  } else correctAnswer = 'no';
+  const correctAnswer = isPrime(randomNum) ? 'yes' : 'no';
   return [correctAnswer, userAnswer];
 };
 

@@ -26,10 +26,9 @@ const generateRound = () => {
   const operator = getRandomOperator();
   const randomNum = getRandomInRange(1, 100);
   const randomNum2 = getRandomInRange(1, 100);
-  const correctAnswer = calcExpression(randomNum, randomNum2, operator);
+  const correctAnswer = String(calcExpression(randomNum, randomNum2, operator));
   const userAnswer = questionAndAnswer(`${randomNum} ${operator} ${randomNum2}`);
-  const strCorrectAnswer = String(correctAnswer);
-  return [strCorrectAnswer, userAnswer];
+  return [correctAnswer, userAnswer];
 };
 
 export default () => runEngine(rules, generateRound);

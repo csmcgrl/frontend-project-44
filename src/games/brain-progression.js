@@ -25,8 +25,8 @@ const generateProgression = () => {
 const rules = 'What number is missing in the progression?';
 const generateRound = () => {
   const currentProgression = generateProgression();
-  const userAnswer = questionAndAnswer(currentProgression.progression);
-  const strCorrectAnswer = String(currentProgression.answer);
+  const userAnswer = String(questionAndAnswer(currentProgression.progression));
+  const strCorrectAnswer = currentProgression.answer;
   return [strCorrectAnswer, userAnswer];
 };
 

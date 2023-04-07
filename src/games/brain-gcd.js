@@ -18,10 +18,9 @@ const rules = 'Find the greatest common divisor of given numbers.';
 const generateRound = () => {
   const randomNum = getRandomInRange(10, 100);
   const randomNum2 = getRandomInRange(10, 100);
-  const correctAnswer = greatestDivisor(randomNum, randomNum2);
+  const correctAnswer = String(greatestDivisor(randomNum, randomNum2));
   const userAnswer = questionAndAnswer(`${randomNum} ${randomNum2}`);
-  const strCorrectAnswer = String(correctAnswer);
-  return [strCorrectAnswer, userAnswer];
+  return [correctAnswer, userAnswer];
 };
 
 export default () => runEngine(rules, generateRound);
