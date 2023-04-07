@@ -1,33 +1,27 @@
-import { questionAndAnswer, runEngine } from '../index.js';
+import { runEngine } from '../index.js';
 
 import getRandomInRange from '../utils.js';
 
-const generateProgression = () => {
-  const progressionLength = getRandomInRange(5, 10);
-  const positionOfMissing = getRandomInRange(0, progressionLength - 1);
-  const firstNum = getRandomInRange(1, 10);
-  const progressionDiff = getRandomInRange(1, 5);
-
+const generateProgression = (start, step, length) => {
   const progression = [];
-  for (let i = 0; i < progressionLength; i += 1) {
-    if (i === positionOfMissing) {
-      progression.push('..');
-    } else {
-      progression.push(firstNum + progressionDiff * i);
-    }
+  for (let i = 0; i < length; i++) {
+    progression.push(start + step * i);
   }
-  return {
-    progression: progression.join(' '),
-    answer: firstNum + progressionDiff * positionOfMissing,
-  };
+  return progression;
 };
 
 const rules = 'What number is missing in the progression?';
+
 const generateRound = () => {
-  const currentProgression = generateProgression();
-  const userAnswer = String(questionAndAnswer(currentProgression.progression));
-  const strCorrectAnswer = currentProgression.answer;
-  return [strCorrectAnswer, userAnswer];
+  const firstNum = getRandomInRange(1, 10);
+  const progressionDiff = getRandomInRange(1, 5);
+  const progressionLength = getRandomInRange(5, 10);
+  const progression = generateProgression(firstNum, progressionDiff, progressionLength);
+  const positionOfMissing = getRandomInRange(0, progressionLength - 1);
+  const correctAnswer = String(progression[positionOfMissing]);
+  progression[positionOfMissing] = '..';
+  const question = progression.join(' ');
+  return [question, correctAnswer];
 };
 
 export default () => runEngine(rules, generateRound);

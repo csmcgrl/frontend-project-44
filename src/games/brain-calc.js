@@ -1,4 +1,4 @@
-import { questionAndAnswer, runEngine } from '../index.js';
+import { runEngine } from '../index.js';
 
 import getRandomInRange from '../utils.js';
 
@@ -27,8 +27,8 @@ const generateRound = () => {
   const randomNum = getRandomInRange(1, 100);
   const randomNum2 = getRandomInRange(1, 100);
   const correctAnswer = String(calcExpression(randomNum, randomNum2, operator));
-  const userAnswer = questionAndAnswer(`${randomNum} ${operator} ${randomNum2}`);
-  return [correctAnswer, userAnswer];
+  const question = `${randomNum} ${operator} ${randomNum2}`;
+  return [question, correctAnswer];
 };
 
 export default () => runEngine(rules, generateRound);

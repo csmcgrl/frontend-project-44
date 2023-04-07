@@ -1,4 +1,4 @@
-import { questionAndAnswer, runEngine } from '../index.js';
+import { runEngine } from '../index.js';
 
 import getRandomInRange from '../utils.js';
 
@@ -21,9 +21,9 @@ const isPrime = (num) => {
 const rules = 'Answer "yes" if given number is prime. Otherwise answer "no".';
 const generateRound = () => {
   const randomNum = getRandomInRange(5, 100);
-  const userAnswer = questionAndAnswer(randomNum);
+  const question = randomNum;
   const correctAnswer = isPrime(randomNum) ? 'yes' : 'no';
-  return [correctAnswer, userAnswer];
+  return [question, correctAnswer];
 };
 
 export default () => runEngine(rules, generateRound);
